@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evento Cultural Tunja</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">6 de Octubre de 2025</div>
+    
+    <div class="header-center">
+      <img src="alcaldia.png" alt="Logo Evento" class="logo-header">
+      <h1>🎭 Evento Cultural Tunja</h1>
+    </div>
+
+    <div class="header-right">Invita Alcaldía de Tunja</div>
+  </header>
+
+  <!-- SECCIÓN REGISTRO -->
+  <section class="registro fade-in">
+    <h2>No te lo pierdas, ¡Regístrate aquí!</h2>
+    <form class="form">
+      <input type="text" placeholder="Ingrese su nombre" required>
+      <input type="text" placeholder="Ingrese su número de contacto" required>
+      <input type="email" placeholder="Ingrese su correo" required>
+      <button type="submit">Regístrate</button>
+    </form>
+  </section>
+
+  <!-- SECCIÓN ACTIVIDADES -->
+  <section class="actividades fade-in">
+    <h2>Actividades</h2>
+    <div class="actividad">🐎 Cabalgata - 2:00 p.m.</div>
+    <div class="actividad">👑 Concurso de Belleza - 5:00 p.m.</div>
+    <div class="actividad">🎆 Fuegos Artificiales - 7:00 p.m.</div>
+    <div class="actividad">🎤 Concierto con Invitados Especiales - 8:00 p.m.</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-in">
+    <div class="footer-content">
+      <img src="alcaldia.png" alt="Logo Alcaldía" class="logo-footer">
+      <div class="contacto">
+        <p>📧 Contacto al correo: alcaldia@tunja.gov.co</p>
+        <p>📞 Contacto al télefono: 3125799000</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FADE-IN -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+</body>
+</html>
